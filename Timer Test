@@ -1,0 +1,137 @@
+function timer()
+
+{
+	var currentTime = new Date()
+	var hours = currentTime.getHours()
+	var minutes = currentTime.getMinutes()
+	var seconds = currentTime.getSeconds()
+
+	if (minutes < 10)
+	{
+		minutes = "0" + minutes
+	}
+	
+	if (hours < 6)
+	{
+		var hoursLeft = 5 - hours;
+		var minsLeft = 60 - minutes;
+		
+		if(minsLeft==60)
+		{
+			minsLeft=0;
+			hoursLeft++;
+		}
+	var secsLeft = 60 - seconds;
+	
+		if(secsLeft==60)
+		{
+			secsLeft=0;
+			minsLeft++;
+		}
+	}
+
+	else if (hours < 18)
+	{
+		var hoursLeft = 17 - hours;
+		var minsLeft = 60 - minutes;
+		
+		if(minsLeft==60)
+		{
+			minsLeft=0;
+			hoursLeft++;
+		}
+
+		var secsLeft = 60 - seconds;
+		
+		if(secsLeft==60)
+		{
+			secsLeft=0;
+      minsLeft++;
+		}
+	}
+	
+	else if (hours < 24)
+	{
+		var hoursLeft = 29 - hours;
+		var minsLeft = 60 - minutes;
+		
+		if(minsLeft==60)
+		{
+			minsLeft=0;
+			hoursLeft++;
+		}
+		
+		var secsLeft = 60 - seconds;
+		
+		if(secsLeft==60)
+		{
+			secsLeft=0;
+			minsLeft++;
+		}
+	}
+	
+	else if (hours == 6)
+	{
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.open("reset.html", true);
+		xmlhttp.send();
+	}
+	
+	else if (hours == 18)
+	{
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.open("reset.html", true);
+		xmlhttp.send();
+	}
+	
+	else
+	{
+		document.write("Error, please contact admin");
+	}
+
+	document.getElementById('timerUpFront').innerHTML= hoursLeft + " hours " + minsLeft + " minutes " + secsLeft + " seconds";
+}
+
+	var countdownTimer = setInterval('timer()', 1000);
+  
+  
+  #timerUpFront
+{
+	color:#009DE3;
+}
+
+#timer
+{
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  margin-top: 20px;
+  font-size:36px;
+  text-align:center;
+}
+
+#button
+{
+	background-color:#008CFF;
+	font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+	font-size:26px;
+	width:160px;
+	padding: 10px;
+	margin: 2em auto;
+	margin-top: 10px;
+}
+
+
+<html>
+<head>
+<title>Timer</title>
+</head>
+
+<body>
+<div id="timer">
+<span id="timerUpFront"></span>
+<br><br>
+<div id="button">
+<center><a href="reset.html" style="text-decoration:none">Reset</a></center>
+</div>
+</div>
+</body>
+</html>
